@@ -1,41 +1,17 @@
-import React, { useState } from 'react';
-import { View, Text, Button, StyleSheet, SafeAreaView } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import LoginScreen from './screens/LoginScreen.js'; // Updated path
+import DashboardScreen from './screens/DashboardScreen.js'; // Updated path
 
-export default function GlucoseScreen({ navigation }) {
-    const [glucose, setGlucose] = useState(100); // Simulated initial value (mg/dL)
+const Stack = createStackNavigator();
 
-    // Simulate glucose reading (70-200 mg/dL)
-    const refreshGlucose = () => {
-        const newGlucose = Math.floor(Math.random() * (200 - 70 + 1)) + 70;
-        setGlucose(newGlucose);
-    };
-
+export default function App() {
     return (
-        <SafeAreaView style={styles.container}>
-            <Text style={styles.title}>Glucose Reading</Text>
-            <Text style={styles.reading}>{glucose} mg/dL</Text>
-            <Button title="Refresh Glucose" onPress={refreshGlucose} />
-            <Button title="Pick Food" onPress={() => navigation.navigate('FoodPicker')} />
-        </SafeAreaView>
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="Login">
+                <Stack.Screen name="Login" component={LoginScreen} />
+                <Stack.Screen name="Dashboard" component={DashboardScreen} />
+            </Stack.Navigator>
+        </NavigationContainer>
     );
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#f5f5f5',
-        padding: 20
-    },
-    title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: '#007AFF',
-        marginBottom: 10
-    },
-    reading: {
-        fontSize: 32,
-        marginBottom: 20
-    }
-});

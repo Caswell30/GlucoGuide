@@ -1,0 +1,4 @@
+username,controlLevel,minGlucose,maxGlucose,carbRatio,correctionFactor
+gooduser,good,4.0,7.0,10,50
+alrightuser,alright,7.1,9.0,12,45
+baduser,bad,9.1,15.0,15,40
