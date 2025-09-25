@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Alert, ActivityIndicator } from 'react-native';
-import * as FileSystem from 'expo-file-system/legacy'; // Using legacy API as per previous fix
+import * as FileSystem from 'expo-file-system/legacy';
 import { initializeDatabase, importUsersFromCSV, getUserByUsername } from '../utils/userDatabase';
 
 const assetPath = FileSystem.documentDirectory + 'users.csv';
@@ -12,7 +12,6 @@ export default function LoginScreen({ navigation }) {
     useEffect(() => {
         setLoading(true);
         initializeDatabase().then(() => {
-            // Copy users.csv from assets to document directory if it exists
             return FileSystem.getInfoAsync(FileSystem.bundleDirectory + 'assets/users.csv')
                 .then(info => {
                     if (info.exists) {
@@ -39,6 +38,7 @@ export default function LoginScreen({ navigation }) {
         getUserByUsername(username, (user) => {
             setLoading(false);
             if (user) {
+                Alert.alert('Success', `Welcome, ${user.username}!`);
                 navigation.navigate('Dashboard', { user });
             } else {
                 Alert.alert('Error', 'Invalid username');

@@ -1,35 +1,35 @@
 {
-    "expo": {
-        "name": "GlucoGuide",
-        "displayName": "GlucoGuide",
-        "slug": "GlucoGuide",
-        "version": "1.0.0",
-        "orientation": "portrait",
-        "icon": "./assets/icon.png",
-        "userInterfaceStyle": "light",
-        "newArchEnabled": false,
-        "jsEngine": "hermes",
-        "ios": {
-            "supportsTablet": true,
-            "newArchEnabled": false
-        },
-        "android": {
-            "newArchEnabled": false,
-            "adaptiveIcon": {
-                "foregroundImage": "./assets/adaptive-icon.png",
-                "backgroundColor": "#ffffff"
-            },
-            "edgeToEdgeEnabled": false
-        },
-        "web": {
-            "favicon": "./assets/favicon.png"
-        },
-        "experiments": {
-            "bridgeless": false
-        },
-        "plugins": [
-            "expo-sqlite"
-        ],
-        "assetBundlePatterns": [ "**/*" ] // Added to include all assets, including users.csv
-    }
+  "expo": {
+    "name": "GlucoGuide",
+    "displayName": "GlucoGuide",
+    "slug": "GlucoGuide",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": false,
+    "jsEngine": "hermes",
+    "ios": {
+      "supportsTablet": true,
+      "newArchEnabled": false
+    },
+    "android": {
+      "newArchEnabled": false,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "edgeToEdgeEnabled": false
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "experiments": {
+      "bridgeless": false
+    },
+    "plugins": [
+      "expo-sqlite"
+    ],
+    "assetBundlePatterns": [ "**/*" ]
+  }
 }
